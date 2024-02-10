@@ -63,7 +63,6 @@ const options = {
     const date = new Date();
     dateSelect = selectedDates[0];
     if (date.getTime() > dateSelect.getTime()) {
-      // window.alert("Please choose a date in the future");
       Notify.failure('Please choose a date in the future');
       actualTime(convertMs(0));
       startBtn.disabled = true;
