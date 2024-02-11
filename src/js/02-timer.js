@@ -3,6 +3,7 @@ import "flatpickr/dist/flatpickr.min.css";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 let dateSelect = 0;
+let timerId = null;
 console.log("Test");
 
 const startBtn = document.querySelector("button");
@@ -80,7 +81,7 @@ flatpickr("input[type=datetime-local]", options);
 startBtn.addEventListener("click", () => {
   timerDecrementClock();
   startBtn.disabled = true;
-  const timerId = setInterval(() => {
+  timerId = setInterval(() => {
   timerDecrementClock();
   }, 1000);
 });

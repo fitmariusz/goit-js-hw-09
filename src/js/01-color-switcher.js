@@ -7,7 +7,7 @@ function getRandomHexColor() {
 
 startBtn.addEventListener("click", () => {
     startBtn.disabled = true;
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
       document.body.style.background = getRandomHexColor(); 
   }, 1000);
 });
@@ -15,5 +15,5 @@ startBtn.addEventListener("click", () => {
 stopBtn.addEventListener("click", () => {
   startBtn.disabled = false;
   clearInterval(timerId);
-  console.log(`Interval with id ${timerId} has stopped!`);
+
 });
