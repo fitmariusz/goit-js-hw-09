@@ -23,7 +23,7 @@ function myPromise(position, delay) {
 
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  for (i = 0; i < Number(form.elements.amount.value); i += 1){
+  for (let i = 0; i < Number(form.elements.amount.value); i += 1){
     const delayTime = Number(form.elements.delay.value) + Number(form.elements.step.value) * i;
     timerId = setTimeout((position, delay) => {
       myPromise(position, delay);
