@@ -80,7 +80,7 @@ flatpickr("input[type=datetime-local]", options);
 startBtn.addEventListener("click", () => {
   timerDecrementClock();
   startBtn.disabled = true;
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
   timerDecrementClock();
   }, 1000);
 });
