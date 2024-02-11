@@ -4,7 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 let dateSelect = 0;
 let timerId = null;
-console.log("Test");
+
 
 const startBtn = document.querySelector("button");
 const displayClock = {};
