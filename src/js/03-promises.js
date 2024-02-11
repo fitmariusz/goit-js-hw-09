@@ -28,5 +28,5 @@ form.addEventListener("submit", (evt) => {
     timerId = setTimeout((position, delay) => {
       myPromise(position, delay);
     }, delayTime, i + 1, delayTime);
-  }
+  };
 });

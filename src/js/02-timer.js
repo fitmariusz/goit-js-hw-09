@@ -7,7 +7,7 @@ console.log("Test");
 
 const startBtn = document.querySelector("button");
 const displayClock = {};
-disClock = document.querySelector(".timer")
+
 displayClock.days = document.querySelector("[data-days]");
 displayClock.hours = document.querySelector("[data-hours]");
 displayClock.minutes = document.querySelector("[data-minutes]");
