@@ -1,33 +1,32 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+const form = document.querySelector('form');
+
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   if (shouldResolve) {
-    return Promise.resolve(position, delay);
+    return Promise.resolve({ position, delay });
   } else {
-    return Promise.reject(position, delay);
+    return Promise.reject({ position, delay });
   }
 }
-
-createPromise(2, 1500)
+  
+function myPromise(position, delay) {
+  createPromise(position, delay)
   .then(({ position, delay }) => {
-    // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-    Notify.failure(`✅ Fulfilled promise ${position} in ${delay}ms`);
+    Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {useIcon: false});
   })
   .catch(({ position, delay }) => {
-    // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-    Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+    Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`, {useIcon: false});
   });
+}
 
-// const makeGreeting = guestName => {
-//   if (guestName === "" || guestName === undefined) {
-//     return Promise.reject("Guest name must not be empty");
-//   }
-
-//   return Promise.resolve(`Welcome ${guestName}`);
-// };
-
-// makeGreeting("")
-//   .then(greeting => Notify.success(`✅ Fulfilled promise `))
-//   .catch (error => Notify.failure(`❌ Rejected promise `));
-  
+form.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  for (i = 0; i < Number(form.elements.amount.value); i += 1){
+    const delayTime = Number(form.elements.delay.value) + Number(form.elements.step.value) * i;
+    timerId = setTimeout((position, delay) => {
+      myPromise(position, delay);
+    }, delayTime, i + 1, delayTime);
+  }
+});
