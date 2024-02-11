@@ -7,6 +7,7 @@ console.log("Test");
 
 const startBtn = document.querySelector("button");
 const displayClock = {};
+disClock = document.querySelector(".timer")
 displayClock.days = document.querySelector("[data-days]");
 displayClock.hours = document.querySelector("[data-hours]");
 displayClock.minutes = document.querySelector("[data-minutes]");
@@ -67,7 +68,8 @@ const options = {
       actualTime(convertMs(0));
       startBtn.disabled = true;
     }
-    else{
+    else {
+      
       startBtn.disabled = false;
     }
   },
@@ -76,6 +78,7 @@ const options = {
 flatpickr("input[type=datetime-local]", options);
 
 startBtn.addEventListener("click", () => {
+  timerDecrementClock();
   startBtn.disabled = true;
   timerId = setInterval(() => {
   timerDecrementClock();
