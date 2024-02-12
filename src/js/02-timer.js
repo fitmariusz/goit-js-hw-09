@@ -8,7 +8,7 @@ let timerId = null;
 
 const startBtn = document.querySelector("button");
 const displayClock = {};
-
+const inputDate = document.querySelector("input");
 displayClock.days = document.querySelector("[data-days]");
 displayClock.hours = document.querySelector("[data-hours]");
 displayClock.minutes = document.querySelector("[data-minutes]");
@@ -53,6 +53,7 @@ function timerDecrementClock() {
   }
   else {
     clearInterval(timerId);
+    inputDate.disabled = false;
   }
 }
 
@@ -68,6 +69,8 @@ const options = {
       Notify.failure('Please choose a date in the future');
       actualTime(convertMs(0));
       startBtn.disabled = true;
+      
+      
     }
     else {
       
@@ -81,6 +84,7 @@ flatpickr("input[type=datetime-local]", options);
 startBtn.addEventListener("click", () => {
   timerDecrementClock();
   startBtn.disabled = true;
+  inputDate.disabled = true;
   timerId = setInterval(() => {
   timerDecrementClock();
   }, 1000);
